@@ -1,0 +1,12 @@
+<div class="specialty-list">
+  <div 
+    class="specialty-card" 
+    *ngFor="let specialty of specialties" 
+    (click)="selectSpecialty(specialty.id)">
+    <div class="card-content">
+      <h3>{{ specialty.name }}</h3>
+    </div>
+  </div>
+</div>
+
+<button (click)="goToHome()">Ir a Inicio</button>

@@ -1,0 +1,23 @@
+
+<form (ngSubmit)="onSubmit()">
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" [(ngModel)]="patient.dni" name="dni" required />
+
+  <label for="firstName">Nombre:</label>
+  <input type="text" id="firstName" [(ngModel)]="patient.firstName" name="firstName" required />
+
+  <label for="lastName">Apellido:</label>
+  <input type="text" id="lastName" [(ngModel)]="patient.lastName" name="lastName" required />
+
+  <label for="appointmentDate">Fecha del Turno:</label>
+  <input type="date" id="appointmentDate" [(ngModel)]="appointmentDate" name="appointmentDate" required />
+
+  <button type="submit">Generar Turno</button>
+</form>
+
+<button (click)="navigateToMyAppointments()">Ir a Mis Turnos</button>
+
+
+<div *ngIf="notificationMessage" [ngClass]="{'success': isSuccess, 'error': isError}" class="notification">
+  {{ notificationMessage }}
+</div>

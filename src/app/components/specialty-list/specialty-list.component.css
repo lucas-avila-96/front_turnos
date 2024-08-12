@@ -1,0 +1,32 @@
+.specialty-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.specialty-card {
+  width: 250px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.specialty-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+.card-content p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #777777;
+}

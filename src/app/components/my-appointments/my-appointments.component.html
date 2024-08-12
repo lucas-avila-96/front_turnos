@@ -1,0 +1,19 @@
+<div class="my-appointments">
+  <h2>Buscar Turnos</h2>
+  <input [formControl]="dniControl" placeholder="Ingrese su DNI">
+  <button (click)="onSearchClick()">Buscar Turnos</button>
+
+  <div *ngIf="appointments.length > 0">
+    <h3>Resultados:</h3>
+    <ul>
+      <li *ngFor="let appointment of appointments">
+        <strong>{{ appointment.appointmentDate }}</strong> - {{ appointment.doctor.firstName }} {{ appointment.doctor.lastName }} ({{ appointment.doctor.specialty.name }})
+      </li>
+    </ul>
+  </div>
+
+<button (click)="goToHome()">Ir a Inicio</button>
+
+
+  <p *ngIf="appointments.length === 0 && dni">No se encontraron turnos.</p>
+</div>
