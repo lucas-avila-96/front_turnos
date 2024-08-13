@@ -8,12 +8,18 @@
     <ul>
       <li *ngFor="let appointment of appointments">
         <strong>{{ appointment.appointmentDate }}</strong> - {{ appointment.doctor.firstName }} {{ appointment.doctor.lastName }} ({{ appointment.doctor.specialty.name }})
+        <button (click)="onRescheduleClick(appointment)">Reprogramar</button>
+        <button (click)="onDeleteClick(appointment.id)">Eliminar</button>
       </li>
     </ul>
   </div>
 
-<button (click)="goToHome()">Ir a Inicio</button>
-
+  <button (click)="goToHome()">Ir a Inicio</button>
 
   <p *ngIf="appointments.length === 0 && dni">No se encontraron turnos.</p>
+
+  <!-- Mensaje de éxito al eliminar -->
+  <div *ngIf="showDeleteMessage" class="alert alert-success mt-3" role="alert">
+    El turno ha sido eliminado correctamente.
+  </div>
 </div>

@@ -14,6 +14,7 @@ export class MyAppointmentsComponent {
   dni: string = '';
   appointments: any[] = [];
   dniControl = new FormControl();
+  showDeleteMessage: boolean = false;
 
 
   constructor(
@@ -44,6 +45,32 @@ export class MyAppointmentsComponent {
       );
     }
   }
+
+  onRescheduleClick(appointment: any): void {
+    const newDate = prompt('Ingrese la nueva fecha (YYYY-MM-DD):', appointment.appointmentDate);
+    if (newDate) {
+      this.appointmentService.rescheduleAppointment(appointment.id, newDate).subscribe(() => {
+        alert('Turno reprogramado');
+        this.searchAppointments(this.dniControl.value);
+      });
+    }
+  }
+
+
+  onDeleteClick(appointmentId: number) {
+    this.appointmentService.deleteAppointment(appointmentId).subscribe(() => {
+      this.showDeleteMessage = true;
+      this.searchAppointments(this.dniControl.value);
+
+      setTimeout(() => {
+        this.showDeleteMessage = false;
+      }, 5000);
+    });
+  }
+
+  deleteAppointment(appointmentId: number) {
+    this.appointmentService.deleteAppointment(appointmentId)
+    }
 
   goToHome() {
     this.router.navigate(['/']);
